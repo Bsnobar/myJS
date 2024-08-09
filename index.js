@@ -6,6 +6,6 @@ function boxCheker() {
     if (length === 0) {
         alert("empty box, enter smthn");
     } else {
-        alert("thank you");
+        alert(value);
     }
 }
