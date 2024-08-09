@@ -1,10 +1,11 @@
-function boxcheker() {
-    var textBoxValue = document.getElementById('box').value;
-    var textLength  = textBoxValue.length;
-    
-    if (textBoxLength === 0 ) {
+function boxCheker() {
+    var textObject = document.getElementById('txtBox1');
+    var value = textObject.value;
+    var length = value.length;
+
+    if (length === 0) {
         alert("empty box, enter smthn");
-    }    else {
+    } else {
         alert("thank you");
-        }
     }
+}
