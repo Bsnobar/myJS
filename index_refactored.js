@@ -1,59 +1,64 @@
+debugger
 function boxCheker() {
 
-    txtBoxValue = getTextBoxValue("txtBox1");
+    const txtBoxValue = getTextBoxValue("txtBox1");
 
     if (isEmptyValue(txtBoxValue)) {
-        showMessage("empty");
+        showMessage("empty", "");
     }
 
     if (isString(txtBoxValue)) {
-        showMessage("string");
+        showMessage(txtBoxValue, "string");
     }
 
     if (isNumber(txtBoxValue)) {
-        showMessage("number");
+        showMessage(txtBoxValue, "number");
     }
 
-    //todo continue for special characters
+    if (isSpecial(txtBoxValue)) {
+        showMessage(txtBoxValue, "\nspecial character");
+    }
+
 }
-
-
 function getTextBoxValue(textBoxName) {
-    var textObject = document.getElementById(textBoxName);
+    const textObject = document.getElementById(textBoxName);
 
-    if (textObject !== 'undefined' &&  !== null) { return textObject.value; }
+    if (textObject !== undefined && textObject !== null) { return textObject.value; }
     return null;
 }
 
-function showMessage(value) {
-    alert(value);
+function showMessage(value, type) {
+    alert("value: " + value + "\ntype: " + type);
 }
 
 function isEmptyValue(value) {
-    if (value.length === 0) {
-        return true
-    }
-
-    return false;
+    return value.trim().length === 0;
 }
 
 function isString(value) {
- //todo check for strings
+    return typeof value === "string";
 }
 
 function isNumber(value) {
-    if (isNaN(value) === false) {
-        return true;
-    }
-
-    return false;
+    return !isNaN(value) && value.trim() !== "";
 }
 
-       
+function isSpecial(value) {
+    const specialChar = /[!@#$%^&*(),.?":{}|<>]/;
+    return specialChar.test(value);
+}
+
+function randomColor() {
+    const letter = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+        color += letter[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+
 document.getElementById('divButton').addEventListener("click", function () {
-
-    document.getElementById('divButton').innerHTML = "yellow";
-
-    document.getElementById('mainDiv').style.backgroundColor = "yellow";
+    const newColor = randomColor();
+    document.getElementById('mainDiv').style.backgroundColor = newColor;
 
 });
