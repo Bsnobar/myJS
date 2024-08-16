@@ -16,7 +16,7 @@ function boxCheker() {
     }
 
     if (isSpecial(txtBoxValue)) {
-        showMessage(txtBoxValue, "\nspecial character");
+        showMessage(txtBoxValue, "special character");
     }
 
 }
