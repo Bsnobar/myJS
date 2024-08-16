@@ -5,21 +5,21 @@ function boxCheker() {
 
     if (isEmptyValue(txtBoxValue)) {
         showMessage("empty", "");
-    } else 
-    if (isString(txtBoxValue)) {
-        showMessage(txtBoxValue, "string");
     }
     else
-    if (isNumber(txtBoxValue)) {
-        showMessage(txtBoxValue, "number");
-    }
-    else 
-    if (isSpecial(txtBoxValue)){
-        showMessage(txtBoxValue, "special character");
-    }
-    else {
-        showMessage(txtBoxValue, "invalid");
-    }
+        if (isNumber(txtBoxValue)) {
+            showMessage(txtBoxValue, "number");
+        }
+        else
+            if (isSpecial(txtBoxValue)) {
+                showMessage(txtBoxValue, "special character");
+            }
+            else
+                if (isString(txtBoxValue)) {
+                    showMessage(txtBoxValue, "string");
+                } else {
+                    showMessage(txtBoxValue, "invalid");
+                }
 
 }
 function getTextBoxValue(textBoxName) {
@@ -37,10 +37,6 @@ function isEmptyValue(value) {
     return value.trim().length === 0;
 }
 
-function isString(value) {
-    return typeof value === "string";
-}
-
 function isNumber(value) {
     return !isNaN(value) && value.trim() !== "";
 }
@@ -48,6 +44,10 @@ function isNumber(value) {
 function isSpecial(value) {
     const specialChar = /[!@#$%^&*(),.?":{}|<>]/;
     return specialChar.test(value);
+}
+
+function isString(value) {
+    return typeof value === "string";
 }
 
 function randomColor() {
