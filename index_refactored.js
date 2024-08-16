@@ -7,8 +7,8 @@ function boxCheker() {
         showMessage("empty", "");
     }
     else
-        if (isNumber(txtBoxValue)) {
-            showMessage(txtBoxValue, "number");
+        if (isEmail(txtBoxValue)) {
+            showMessage(txtBoxValue, "email");
         }
         else
             if (isSpecial(txtBoxValue)) {
@@ -17,9 +17,14 @@ function boxCheker() {
             else
                 if (isString(txtBoxValue)) {
                     showMessage(txtBoxValue, "string");
-                } else {
-                    showMessage(txtBoxValue, "invalid");
-                }
+                } else
+                    if (isNumber(txtBoxValue)) {
+                        showMessage(txtBoxValue, "number");
+                    }
+
+                    else {
+                        showMessage(txtBoxValue, "invalid");
+                    }
 
 }
 function getTextBoxValue(textBoxName) {
@@ -44,6 +49,11 @@ function isNumber(value) {
 function isSpecial(value) {
     const specialChar = /[!@#$%^&*(),.?":{}|<>]/;
     return specialChar.test(value);
+}
+
+function isEmail(value) {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(value);
 }
 
 function isString(value) {
