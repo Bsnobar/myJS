@@ -21,7 +21,7 @@ function boxCheker() {
 function getTextBoxValue(textBoxName) {
     var textObject = document.getElementById(textBoxName);
 
-    if (textObject !== 'undefined' && variable !== null) { return textObject.value; }
+    if (textObject !== 'undefined' &&  !== null) { return textObject.value; }
     return null;
 }
 
