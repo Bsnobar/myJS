@@ -1,22 +1,24 @@
-debugger
+
 function boxCheker() {
 
     const txtBoxValue = getTextBoxValue("txtBox1");
 
     if (isEmptyValue(txtBoxValue)) {
         showMessage("empty", "");
-    }
-
+    } else 
     if (isString(txtBoxValue)) {
         showMessage(txtBoxValue, "string");
     }
-
+    else
     if (isNumber(txtBoxValue)) {
         showMessage(txtBoxValue, "number");
     }
-
-    if (isSpecial(txtBoxValue)) {
+    else 
+    if (isSpecial(txtBoxValue)){
         showMessage(txtBoxValue, "special character");
+    }
+    else {
+        showMessage(txtBoxValue, "invalid");
     }
 
 }
