@@ -4,6 +4,12 @@
 <head>
   <meta charset="utf-8" />
   <title>Batool's JS + HTML</title>
+
+  <style>
+    table { width: 50%;}
+    th, td { border: 1px solid black; text-align: center;}
+    caption { text-align: left; margin: 10px; font-size: large;}
+  </style>
 </head>
 
 <body>
@@ -14,6 +20,7 @@
    <button onclick="boxCheker()">Validate Data</button></p>
    <hr style="border-top: 2px dashed darkblue">
   <p><button id="divButton">Change Div Color</button> </p>
+   <p><button id="divTimedButton">Start Div Color Change</button> </p>
 
   <div id="mainDiv" style="background-color: blue; margin-top: 10px; width: 50%;height: 130px;">
     &nbsp;
@@ -21,9 +28,28 @@
     <!-- &nbsp; is called an HTML entity because its in the form of &{content}; this entity is called null or backspace thus nbsp, it represents an empty space character in html -->
     <!-- other known entities are:  &lt; less than symbol   &gt; greater than symbol    &amp; ampersand symbol -->
   </div>
+  <div id="timedDiv" style="background-color: purple; margin-top: 10px; width: 50%;height: 130px;">
+    &nbsp;
+  </div>
 
   <h2>Task 2 - Data List</h2>
   
+  <table>
+    <caption>
+      Employee Data List
+    </caption>
+    <thead>
+      <tr>
+       <th scope="col">Name</th>
+       <th scope="col">Age</th>
+       <th scope="col">Position</th>
+    </tr>
+    </thead>
+    <tbody id="employee-tbody">
+     
+    </tbody>
+  </table>
+ 
   <script type="text/javascript" src="index_refactored.js"></script>
 </body>
 
